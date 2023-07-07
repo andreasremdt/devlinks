@@ -1,14 +1,20 @@
 import Link from "next/link";
+import Heading from "@/components/heading";
+import Text from "@/components/text";
+import Input from "@/components/input";
+import Button from "@/components/button";
+import styles from "./page.module.css";
 
 export default function RegisterPage() {
   return (
     <>
-      <h1>Create account</h1>
-      <p>Let&apos;s get you started sharing your links!</p>
+      <Heading className={styles.heading}>Create account</Heading>
+      <Text>Let&apos;s get you started sharing your links!</Text>
 
-      <form>
-        <label htmlFor="email">Email address</label>
-        <input
+      <form className={styles.form}>
+        <Input
+          icon="email"
+          label="Email address"
           type="email"
           name="email"
           id="email"
@@ -16,8 +22,9 @@ export default function RegisterPage() {
           required
         />
 
-        <label htmlFor="password">Create password</label>
-        <input
+        <Input
+          icon="password"
+          label="Create password"
           type="password"
           name="password"
           id="password"
@@ -25,8 +32,9 @@ export default function RegisterPage() {
           required
         />
 
-        <label htmlFor="confirm-password">Confirm password</label>
-        <input
+        <Input
+          icon="password"
+          label="Confirm password"
           type="password"
           name="confirm-password"
           id="confirm-password"
@@ -34,14 +42,14 @@ export default function RegisterPage() {
           required
         />
 
-        <p>Password must contain at least 8 characters</p>
+        <Text size="s">Password must contain at least 8 characters</Text>
 
-        <button type="submit">Create new account</button>
+        <Button type="submit">Create new account</Button>
       </form>
 
-      <p>
+      <Text className={styles.footer}>
         Already have an account? <Link href="/login">Login</Link>
-      </p>
+      </Text>
     </>
   );
 }

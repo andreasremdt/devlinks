@@ -1,0 +1,17 @@
+.wrapper {
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  padding-block: 2rem;
+}
+
+.logo {
+  margin: 0 auto 3.66rem auto;
+}
+
+.content {
+  background-color: var(--clr-white);
+  width: 100%;
+  max-width: 29.75rem;
+  padding: 2.5rem;
+}

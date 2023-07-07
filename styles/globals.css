@@ -40,14 +40,25 @@ html:focus-within {
 
 body {
   min-height: 100vh;
-  text-rendering: optimizeSpeed;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
   line-height: 1.5;
-  color: var(--clr-gray-800);
+  color: var(--clr-gray-400);
   background-color: var(--clr-gray-100);
 }
 
 a:not([class]) {
   text-decoration-skip-ink: auto;
+}
+
+a {
+  color: var(--clr-primary-400);
+  text-decoration: none;
+}
+
+a:is(:hover, :focus-visible) {
+  outline: none;
+  text-decoration: underline 2px;
 }
 
 img,

@@ -1,0 +1,11 @@
+.base {
+  color: var(--clr-gray-800);
+}
+
+.m {
+  font-size: 32px;
+}
+
+.s {
+  font-size: inherit;
+}

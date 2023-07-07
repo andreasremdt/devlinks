@@ -1,14 +1,20 @@
 import Link from "next/link";
+import Heading from "@/components/heading";
+import Text from "@/components/text";
+import Input from "@/components/input";
+import Button from "@/components/button";
+import styles from "./page.module.css";
 
 export default function LoginPage() {
   return (
     <>
-      <h1>Login</h1>
-      <p>Add your details below to get back into the app</p>
+      <Heading className={styles.heading}>Login</Heading>
+      <Text>Add your details below to get back into the app</Text>
 
-      <form>
-        <label htmlFor="email">Email address</label>
-        <input
+      <form className={styles.form}>
+        <Input
+          icon="email"
+          label="Email address"
           type="email"
           name="email"
           id="email"
@@ -16,8 +22,9 @@ export default function LoginPage() {
           required
         />
 
-        <label htmlFor="password">Password</label>
-        <input
+        <Input
+          icon="password"
+          label="Password"
           type="password"
           name="password"
           id="password"
@@ -25,12 +32,12 @@ export default function LoginPage() {
           required
         />
 
-        <button type="submit">Login</button>
+        <Button type="submit">Login</Button>
       </form>
 
-      <p>
+      <Text className={styles.footer}>
         Don&apos;t have an account? <Link href="/register">Create account</Link>
-      </p>
+      </Text>
     </>
   );
 }
