@@ -1,24 +1,12 @@
 import Link from "next/link";
-import { createAuthSession, encryptJWT } from "@/lib/session";
 
 export default function LoginPage() {
-  async function handleSubmit(data: FormData) {
-    "use server";
-
-    const session = await encryptJWT({
-      email: data.get("email") as string,
-      id: "2323423",
-    });
-
-    createAuthSession(session);
-  }
-
   return (
     <>
       <h1>Login</h1>
       <p>Add your details below to get back into the app</p>
 
-      <form action={handleSubmit}>
+      <form>
         <label htmlFor="email">Email address</label>
         <input
           type="email"
