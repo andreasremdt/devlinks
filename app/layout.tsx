@@ -1,7 +1,7 @@
-import "./globals.css";
-import { Inter } from "next/font/google";
+import { Instrument_Sans } from "next/font/google";
+import "@/styles/globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const instrumentSans = Instrument_Sans({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Create Next App",
@@ -23,7 +23,7 @@ export default function RootLayout({
           href="/favicon-32x32.png"
         />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={instrumentSans.className}>{children}</body>
     </html>
   );
 }
