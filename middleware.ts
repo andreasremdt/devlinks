@@ -5,14 +5,11 @@ const PROTECTED_ROUTES = ["/links", "/profile", "/"];
 const AUTH_ROUTES = ["/login", "/register", "/"];
 
 export default async function middleware(req: NextRequest) {
-  const path = req.nextUrl.pathname;
   const session = await verify(req);
 
-  if (!session && PROTECTED_ROUTES.includes(path)) {
+  if (!session && PROTECTED_ROUTES.includes(req.nextUrl.pathname)) {
     return NextResponse.redirect(new URL("/login", req.url));
-  }
-
-  if (session && AUTH_ROUTES.includes(path)) {
+  } else if (session && AUTH_ROUTES.includes(req.nextUrl.pathname)) {
     return NextResponse.redirect(new URL("/profile", req.url));
   }
 
