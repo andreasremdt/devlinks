@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import config from "@/utils/config";
+import config from "@/lib/config";
 
 export function hashPassword(password: string) {
   return bcrypt.hash(password, config.authHashRounds);

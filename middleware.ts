@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { verifyJWT } from "@/utils/session";
+import { verifyJWT } from "@/lib/session";
 
 const PROTECTED_ROUTES = ["/links", "/profile", "/"];
 const AUTH_ROUTES = ["/login", "/register", "/"];

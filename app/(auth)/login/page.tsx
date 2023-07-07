@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { createAuthSession, encryptJWT } from "@/utils/session";
+import { createAuthSession, encryptJWT } from "@/lib/session";
 
 export default function LoginPage() {
   async function handleSubmit(data: FormData) {
