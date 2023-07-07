@@ -4,7 +4,8 @@ import { SignJWT, jwtVerify } from "jose";
 import { User } from "@prisma/client";
 import config from "@/lib/config";
 
-export function createAuthSession(session: string) {
+export async function createAuthSession(user: User) {
+  const session = await encrypt(user);
   const exp = 1000 * 60 * 60;
 
   cookies().set(config.authCookieName, session, {
@@ -14,7 +15,7 @@ export function createAuthSession(session: string) {
   });
 }
 
-export function encryptJWT(user: Pick<User, "id" | "email">) {
+export function encrypt(user: Pick<User, "id" | "email">) {
   const iat = Math.floor(Date.now() / 1000);
   const exp = iat + 60 * 60;
   const { id, email } = user;
@@ -27,7 +28,7 @@ export function encryptJWT(user: Pick<User, "id" | "email">) {
     .sign(new TextEncoder().encode(config.authSecret));
 }
 
-export async function verifyJWT(req: NextRequest) {
+export async function verify(req: NextRequest) {
   const cookie = req.cookies.get(config.authCookieName);
 
   if (!cookie) {

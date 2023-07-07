@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
-import { verifyJWT } from "@/lib/session";
+import { verify } from "@/lib/session";
 
 const PROTECTED_ROUTES = ["/links", "/profile", "/"];
 const AUTH_ROUTES = ["/login", "/register", "/"];
 
 export default async function middleware(req: NextRequest) {
   const path = req.nextUrl.pathname;
-  const session = await verifyJWT(req);
+  const session = await verify(req);
 
   if (!session && PROTECTED_ROUTES.includes(path)) {
     return NextResponse.redirect(new URL("/login", req.url));
